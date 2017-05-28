@@ -1,0 +1,3 @@
+[submodule "themes/black-and-light"]
+	path = themes/black-and-light
+	url = https://github.com/binaryhacker/hugo-black-and-light-theme.git

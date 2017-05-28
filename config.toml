@@ -1,0 +1,24 @@
+baseURL = "www.binaryhacker.net"
+languageCode = "en-us"
+title = "Binary Hacker Blog"
+theme = "black-and-light"
+googleAnalytics = "UA-99635801-1"
+canonifyurls = true
+languagecode = "en"
+publishDir = "docs"
+
+pygmentsstyle       = "bw"
+pygmentscodefences  = true
+
+[params]
+  sitename = "BinaryHacker Blog"
+
+[[menu.main]]
+    name = "About"
+    url  = "https://github.com/davidhampgonsalves/hugo-black-and-light-theme"
+[[menu.main]]
+    name = "Projects"
+    url  = "https://github.com/davidhampgonsalves/hugo-black-and-light-theme"
+[[menu.main]]
+    name = "Resume"
+    url  = "https://github.com/davidhampgonsalves/hugo-black-and-light-theme"
