@@ -2,40 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Binary Hacker Blog</title>
-    <link>www.binaryhacker.net/post/</link>
+    <link>/post/</link>
     <description>Recent content in Posts on Binary Hacker Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 18 May 2017 06:24:45 +0530</lastBuildDate>
     
-	<atom:link href="www.binaryhacker.net/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Arm Processor</title>
-      <link>www.binaryhacker.net/post/hello-world/</link>
+      <link>/post/hello-world/</link>
       <pubDate>Thu, 18 May 2017 06:24:45 +0530</pubDate>
       
-      <guid>www.binaryhacker.net/post/hello-world/</guid>
+      <guid>/post/hello-world/</guid>
       <description>Hello world My first post in hugo</description>
     </item>
     
     <item>
       <title>C Program Without Main Function</title>
-      <link>www.binaryhacker.net/post/c-compilation-stages/</link>
+      <link>/post/c-compilation-stages/</link>
       <pubDate>Thu, 18 May 2017 06:24:45 +0530</pubDate>
       
-      <guid>www.binaryhacker.net/post/c-compilation-stages/</guid>
+      <guid>/post/c-compilation-stages/</guid>
       <description>Let us see how we can write a c program without main as a function . To achieve this we need to understand how a C compiler compiles the C code . The compiler will pass through different stages while compiling the code to a binary format (elf).
 C compilation stages While compiling a c program the compiler goes through different stages . The stages of the compiler are listed below .</description>
     </item>
     
     <item>
       <title>Creating a New Theme</title>
-      <link>www.binaryhacker.net/post/creating-a-new-theme/</link>
+      <link>/post/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>www.binaryhacker.net/post/creating-a-new-theme/</guid>
+      <guid>/post/creating-a-new-theme/</guid>
       <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
