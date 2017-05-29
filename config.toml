@@ -1,4 +1,4 @@
-baseURL = "www.binaryhacker.net"
+baseURL = "https://www.binaryhacker.net/"
 languageCode = "en-us"
 title = "Binary Hacker Blog"
 theme = "black-and-light"
