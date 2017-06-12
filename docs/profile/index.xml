@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Profiles on Binary Hacker Blog</title>
+    <link>/profile/</link>
+    <description>Recent content in Profiles on Binary Hacker Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 03 Jun 2017 13:03:05 +0530</lastBuildDate>
+    
+	<atom:link href="/profile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Who am I?</title>
+      <link>/profile/about/</link>
+      <pubDate>Sat, 03 Jun 2017 13:03:05 +0530</pubDate>
+      
+      <guid>/profile/about/</guid>
+      <description>Hi! My name is Tony Lijo Jose . I am an embedded systems engineer working in chennai . I am passionate about opensource , embedded systems and tons of other things .
+I enjoy writting code in c / c++ / python / java script . I use this blog to share some of my technical experiments with you .</description>
+    </item>
+    
+  </channel>
+</rss>

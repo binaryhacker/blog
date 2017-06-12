@@ -6,10 +6,20 @@
     <description>Recent content on Binary Hacker Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 May 2017 06:24:45 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 03 Jun 2017 13:03:05 +0530</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Who am I?</title>
+      <link>/profile/about/</link>
+      <pubDate>Sat, 03 Jun 2017 13:03:05 +0530</pubDate>
+      
+      <guid>/profile/about/</guid>
+      <description>Hi! My name is Tony Lijo Jose . I am an embedded systems engineer working in chennai . I am passionate about opensource , embedded systems and tons of other things .
+I enjoy writting code in c / c++ / python / java script . I use this blog to share some of my technical experiments with you .</description>
+    </item>
     
     <item>
       <title>C Program Without Main Function</title>
