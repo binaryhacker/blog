@@ -6,10 +6,19 @@
     <description>Recent content on Binary Hacker Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Jun 2017 13:03:05 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 13 Jun 2017 08:11:34 +0530</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Flashing Nexus 5 Factory Images</title>
+      <link>/post/nexus_5_factory_flashing/</link>
+      <pubDate>Tue, 13 Jun 2017 08:11:34 +0530</pubDate>
+      
+      <guid>/post/nexus_5_factory_flashing/</guid>
+      <description>Recentry while trying to flash the android aosp hammerhead build to my Nexus 5 device ,my device went into a bootloop . The device just hanged infinatly in the bootanimation . To recover the device to working state , I had to flash the factory binaries to the device . So i did a quick google search and I came to know that google is maintaining all the nexus device factory images in this url https://developers.</description>
+    </item>
     
     <item>
       <title>Who am I?</title>

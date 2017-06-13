@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-	<meta name="generator" content="Hugo 0.21-DEV" />
     <meta http-equiv="cache-control" content="max-age=0" />
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="expires" content="0" />
@@ -32,10 +31,10 @@
     <title>
       
       
-         Binary Hacker Blog 
+         Flashing Nexus 5 Factory Images 
       
     </title>
-    <link rel="canonical" href="/">
+    <link rel="canonical" href="/post/nexus_5_factory_flashing/">
 
     <style>
   * {
@@ -391,8 +390,6 @@
 
 
     
-      <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Binary Hacker Blog" />
-    
   </head>
 
   <body>
@@ -407,29 +404,70 @@
 
 
 <section id=content>
-  <ul class=posts_listing>
-     
+  <h1> Flashing Nexus 5 Factory Images </h1>
+
+  <div id=sub-header>
+    June 2017 · 2 minute read
+  </div>
+
+  <div class="entry-content">
     
-    <li>
-    <h2><a href="/post/nexus_5_factory_flashing/">Flashing Nexus 5 Factory Images</a></h2>
-    <div id=date>
-	    <time>June 2017</time>
-    </div>
-    </li>
+
+<p>Recentry while trying to flash the android aosp hammerhead build to my <code>Nexus 5</code> device ,my device went into a bootloop . The device just hanged infinatly in the bootanimation . To recover the device to working state , I had to flash the factory binaries to the device . So i did a quick google search and I came to know that google is maintaining all the nexus device factory images in this url <a href="https://developers.google.com/android/images">https://developers.google.com/android/images</a> . I just downloaded the latest binaries from the website and followed through the instructions given in the link . I was able to rescue my device from bootloop .</p>
+
+<p>The Downloaded package had the following files inside .</p>
+
+<pre><code>tony@terra-&gt; tree
+.
+|-- bootloader-hammerhead-hhz20h.img
+|-- flash-all.bat
+|-- flash-all.sh
+|-- flash-base.sh
+|-- image-hammerhead-m4b30z.zip
+`-- radio-hammerhead-m8974a-2.0.50.2.30.img
+
+0 directories, 6 files
+</code></pre>
+
+<ol>
+<li>bootloader-hammerhead-hhz20h.img (Bootloader image)</li>
+<li>flash-all.bat (windows flash script)</li>
+<li>flash-all.sh  (linux flash script)</li>
+<li>flash-base.sh</li>
+<li>image-hammerhead-m4b30z.zip (boot.img , system.img , recovery.img , userdata.img)</li>
+<li>radio-hammerhead-m8974a-2.0.50.2.30.img</li>
+</ol>
+
+<p>The steps for flashing the images are mentioned below .</p>
+
+<h2 id="step-1-reboot-nexus-5-to-fastboot-mode-and-unlock-the-bootloader-for-flashing">STEP 1 (Reboot nexus 5 to fastboot mode and unlock the bootloader for flashing)</h2>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">adb reboot bootloader
+adb oem unlock
+</pre></div>
+
+<h2 id="step-2-flash-the-bootloader-image-and-reboot-to-bootloader">STEP 2 (flash the bootloader image and reboot to bootloader)</h2>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">fastboot flash bootloader bootloader-hammerhead-hhz20h.img
+fastboot reboot-bootloader
+</pre></div>
+
+<h2 id="step-3-flash-the-radio-image-and-reboot">STEP 3 (flash the radio image and reboot)</h2>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">fastboot flash radio radio-hammerhead-m8974a-2.0.50.2.30.img
+fastboot reboot-bootloader
+sleep 5
+</pre></div>
+
+<h2 id="step-4-flash-android-binaries">STEP 4 Flash android binaries</h2>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">fastboot -w update image-hammerhead-m4b30z.zip
+</pre></div>
+
+  </div>
+
+  <div id=links>
     
-     
-    
-     
-    
-    <li>
-    <h2><a href="/post/c-compilation-stages/">C Program Without Main Function</a></h2>
-    <div id=date>
-	    <time>May 2017</time>
-    </div>
-    </li>
+      <a class="basic-alignment left" href="/post/c-compilation-stages/">&laquo; C Program Without Main Function</a>
     
     
-  </ul>
+  </div>
 </section>
 
   
@@ -442,5 +480,6 @@ ga('send', 'pageview');
 
 </body>
 </html>
+
 
 
