@@ -17,7 +17,7 @@
       <pubDate>Tue, 13 Jun 2017 08:11:34 +0530</pubDate>
       
       <guid>/post/nexus_5_factory_flashing/</guid>
-      <description>Recentry while trying to flash the android aosp hammerhead build to my Nexus 5 device ,my device went into a bootloop . The device just hanged infinatly in the bootanimation . To recover the device to working state , I had to flash the factory binaries to the device . So i did a quick google search and I came to know that google is maintaining all the nexus device factory images in this url https://developers.</description>
+      <description>Recentry while trying to flash the android aosp hammerhead build to my Nexus 5 device, my device went into a bootloop . The device just hanged infinitely in the boot animation . To recover the device to working state , I had to flash the factory binaries to the device . So I did a quick google search and I came to know that google is maintaining all the nexus device factory images in this url https://developers.</description>
     </item>
     
     <item>

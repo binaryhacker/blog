@@ -413,7 +413,7 @@
   <div class="entry-content">
     
 
-<p>Recentry while trying to flash the android aosp hammerhead build to my <code>Nexus 5</code> device ,my device went into a bootloop . The device just hanged infinatly in the bootanimation . To recover the device to working state , I had to flash the factory binaries to the device . So i did a quick google search and I came to know that google is maintaining all the nexus device factory images in this url <a href="https://developers.google.com/android/images">https://developers.google.com/android/images</a> . I just downloaded the latest binaries from the website and followed through the instructions given in the link . I was able to rescue my device from bootloop .</p>
+<p>Recentry while trying to flash the android aosp hammerhead build to my <code>Nexus 5</code> device, my device went into a bootloop . The device just hanged infinitely in the boot animation . To recover the device to working state , I had to flash the factory binaries to the device . So I did a quick google search and I came to know that google is maintaining all the nexus device factory images in this url <a href="https://developers.google.com/android/images">https://developers.google.com/android/images</a> . I just downloaded the latest binaries from the website and followed through the instructions given in the link . I was able to rescue my device from bootloop.</p>
 
 <p>The Downloaded package had the following files inside .</p>
 
@@ -445,12 +445,12 @@
 adb oem unlock
 </pre></div>
 
-<h2 id="step-2-flash-the-bootloader-image-and-reboot-to-bootloader">STEP 2 (flash the bootloader image and reboot to bootloader)</h2>
+<h2 id="step-2-flash-the-bootloader-image-and-reboot-to-bootloader">STEP 2 (Flash the bootloader image and reboot to bootloader)</h2>
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">fastboot flash bootloader bootloader-hammerhead-hhz20h.img
 fastboot reboot-bootloader
 </pre></div>
 
-<h2 id="step-3-flash-the-radio-image-and-reboot">STEP 3 (flash the radio image and reboot)</h2>
+<h2 id="step-3-flash-the-radio-image-and-reboot">STEP 3 (Flash the radio image and reboot)</h2>
 <div class="highlight" style="background: #ffffff"><pre style="line-height: 125%">fastboot flash radio radio-hammerhead-m8974a-2.0.50.2.30.img
 fastboot reboot-bootloader
 sleep 5
