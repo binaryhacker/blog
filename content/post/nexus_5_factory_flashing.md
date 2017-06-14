@@ -5,7 +5,7 @@ title = "Flashing Nexus 5 Factory Images"
 +++
 
 
-Recentry while trying to flash the android aosp hammerhead build to my `Nexus 5` device ,my device went into a bootloop . The device just hanged infinatly in the bootanimation . To recover the device to working state , I had to flash the factory binaries to the device . So i did a quick google search and I came to know that google is maintaining all the nexus device factory images in this url https://developers.google.com/android/images . I just downloaded the latest binaries from the website and followed through the instructions given in the link . I was able to rescue my device from bootloop .
+Recentry while trying to flash the android aosp hammerhead build to my `Nexus 5` device, my device went into a bootloop . The device just hanged infinitely in the boot animation . To recover the device to working state , I had to flash the factory binaries to the device . So I did a quick google search and I came to know that google is maintaining all the nexus device factory images in this url https://developers.google.com/android/images . I just downloaded the latest binaries from the website and followed through the instructions given in the link . I was able to rescue my device from bootloop.
 
 
 The Downloaded package had the following files inside . 
@@ -40,14 +40,14 @@ adb reboot bootloader
 adb oem unlock
 ````
 
-## STEP 2 (flash the bootloader image and reboot to bootloader)
+## STEP 2 (Flash the bootloader image and reboot to bootloader)
 
 ````bash
 fastboot flash bootloader bootloader-hammerhead-hhz20h.img
 fastboot reboot-bootloader
 ````
 
-## STEP 3 (flash the radio image and reboot)
+## STEP 3 (Flash the radio image and reboot)
 ````bash
 fastboot flash radio radio-hammerhead-m8974a-2.0.50.2.30.img
 fastboot reboot-bootloader
