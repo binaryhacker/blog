@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <base href="/">
+    
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400|Old+Standard+TT:400' rel='stylesheet' type='text/css'>
+
+    <link rel="icon" type="image/png" href="/favicon_16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon_32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon_128x128.png" sizes="128x128">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+		      google_ad_client: "ca-pub-6116030345332846",
+		          enable_page_level_ads: true
+			    });
+    </script>
+    <title>
+      
+      
+         Android HAL (Hardware Abstraction Layer) 
+      
+    </title>
+    <link rel="canonical" href="/post/android_hal/">
+
+    <style>
+  * {
+    border:0;
+    font:inherit;
+    font-size:100%;
+    vertical-align:baseline;
+    margin:0;
+    padding:0;
+    color: black;
+  }
+
+  body {
+    font-family:'Open Sans', 'Myriad Pro', Myriad, sans-serif;
+    font-size:17px;
+    line-height:160%;
+    color:#1d1313;
+    max-width:700px;
+    margin:auto;
+  }
+
+  p {
+    margin: 20px 0;
+  }
+
+  a img {
+    border:none;
+  }
+
+  img {
+    margin: 10px auto 10px auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  pre, code {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background-color: #f7f7f7;
+  }
+
+  code {
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+    word-wrap: normal;
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+  }
+
+  pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+
+  pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+
+  pre code::before,
+  pre code::after {
+    content: normal;
+  }
+
+  em,q,em,dfn {
+    font-style:italic;
+  }
+
+  .sans,html .gist .gist-file .gist-meta {
+    font-family:"Open Sans","Myriad Pro",Myriad,sans-serif;
+  }
+
+  .mono,pre,code,tt,p code,li code {
+    font-family:Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace;
+  }
+
+  .heading,.serif,h1,h2,h3 {
+    font-family:"Old Standard TT",serif;
+  }
+
+  strong {
+    font-weight:600;
+  }
+
+  q:before {
+    content:"\201C";
+  }
+
+  q:after {
+    content:"\201D";
+  }
+
+  del,s {
+    text-decoration:line-through;
+  }
+
+  blockquote {
+    font-family:"Old Standard TT",serif;
+    text-align:center;
+    padding:50px;
+  }
+
+  blockquote p {
+    display:inline-block;
+    font-style:italic;
+  }
+
+  blockquote:before,blockquote:after {
+    font-family:"Old Standard TT",serif;
+    content:'\201C';
+    font-size:35px;
+    color:#403c3b;
+  }
+
+  blockquote:after {
+    content:'\201D';
+  }
+
+  hr {
+    width:40%;
+    height: 1px;
+    background:#403c3b;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size:35px;
+  }
+
+  h2 {
+    font-size:28px;
+  }
+
+  h3 {
+    font-size:22px;
+    margin-top:18px;
+  }
+
+  h1 a,h2 a,h3 a {
+    text-decoration:none;
+  }
+
+  h1,h2 {
+    margin-top:28px;
+  }
+
+  #sub-header, time {
+    color:#403c3b;
+    font-size:13px;
+  }
+
+  #sub-header {
+    margin: 0 4px;
+  }
+
+  #nav h1 a {
+    font-size:35px;
+    color:#1d1313;
+    line-height:120%;
+  }
+
+  .posts_listing a,#nav a {
+    text-decoration: none;
+  }
+
+  li {
+    margin-left: 20px;
+  }
+
+  ul li {
+    margin-left: 5px;
+  }
+
+  ul li {
+    list-style-type: none;
+  }
+  ul li:before {
+    content:"\00BB \0020";
+  }
+
+  #nav ul li:before, .posts_listing li:before {
+    content:'';
+    margin-right:0;
+  }
+
+  #content {
+    text-align:left;
+    width:100%;
+    font-size:15px;
+    padding:60px 0 80px;
+  }
+
+  #content h1,#content h2 {
+    margin-bottom:5px;
+  }
+
+  #content h2 {
+    font-size:25px;
+  }
+
+  #content .entry-content {
+    margin-top:15px;
+  }
+
+  #content time {
+    margin-left:3px;
+  }
+
+  #content h1 {
+    font-size:30px;
+  }
+
+  .highlight {
+    margin: 10px 0;
+  }
+
+  .posts_listing {
+    margin:0 0 50px;
+  }
+
+  .posts_listing li {
+    margin:0 0 25px 15px;
+  }
+
+  .posts_listing li a:hover,#nav a:hover {
+    text-decoration: underline;
+  }
+
+  #nav {
+    text-align:center;
+    position:static;
+    margin-top:60px;
+  }
+
+  #nav ul {
+    display: table;
+    margin: 8px auto 0 auto;
+  }
+
+  #nav li {
+    list-style-type:none;
+    display:table-cell;
+    font-size:15px;
+    padding: 0 20px;
+  }
+
+  #links {
+    margin: 50px 0 0 0;
+  }
+
+  #links :nth-child(2) {
+    float:right;
+  }
+
+  #not-found {
+    text-align: center;
+  }
+
+  #not-found a {
+    font-family:"Old Standard TT",serif;
+    font-size: 200px;
+    text-decoration: none;
+    display: inline-block;
+    padding-top: 225px;
+  }
+
+  @media (max-width: 750px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:28px;
+    }
+
+    #nav li {
+      font-size:13px;
+      padding: 0 15px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:50px;
+      font-size:14px;
+    }
+
+    #content h1 {
+      font-size:25px;
+    }
+
+    #content h2 {
+      font-size:22px;
+    }
+
+    .posts_listing li div {
+      font-size:12px;
+    }
+  }
+
+  @media (max-width: 400px) {
+    body {
+      padding-left:20px;
+      padding-right:20px;
+    }
+
+    #nav h1 a {
+      font-size:22px;
+    }
+
+    #nav li {
+      font-size:12px;
+      padding: 0 10px;
+    }
+
+    #content {
+      margin-top:0;
+      padding-top:20px;
+      font-size:12px;
+    }
+
+    #content h1 {
+      font-size:20px;
+    }
+
+    #content h2 {
+      font-size:18px;
+    }
+
+    .posts_listing li div{
+      font-size:12px;
+    }
+  }
+</style>
+
+
+    
+  </head>
+
+  <body>
+    <section id=nav>
+      <h1><a href="/">BinaryHacker Blog</a></h1>
+      <ul>
+        
+          <li><a href="http://binaryhacker.net/profile/about/">About</a></li>
+        
+      </ul>
+    </section>
+
+
+<section id=content>
+  <h1> Android HAL (Hardware Abstraction Layer) </h1>
+
+  <div id=sub-header>
+    June 2017 · 5 minute read
+  </div>
+
+  <div class="entry-content">
+    
+
+<p>Hardare Abstraction Layer is the software component which abstracts the hardware . In one context  <code>operating system</code> is a hardware abstraction layer . In another context we can say a pheripheral driver is a hardware abstraction layer for that pheripheral hardware . Or some time we can use userspace drievers  which does the job of abstracting the hardware .</p>
+
+<p>Hardware Abstraction Layer in the context of android operating system is a binary blob which will talk to hardware . <code>HAL</code> is nothing more than shared <code>elf</code> object ! . Most of the hardware pheripherals will have a <code>HAL</code> associated with it. For example wifi , camera , display etc.</p>
+
+<p>In normal embedded linux scenario we will talk to linux kernel via system calls, And system calls are kind of standerd interface for the user space programs to talk to the kernel. In android this is not the case , All applications will try to comply with hal layer instead of the system call layer.</p>
+
+<p>Every HAL module have a well known symbol called <code>HMI</code>. Any subusystem / service request a HAL via a function called <code>hw_get_module()</code> . hw_get_module. This function can be found in <code>hardware/libhardware</code> .</p>
+
+<h2 id="hardware-module-t-structure">hardware_module_t structure</h2>
+
+<p>Every hardware module must have a data structure named <code>HAL_MODULE_INFO_SYM</code> and the fields of this data structure must begin with <code>hw_module_t</code> followed by module specific information.</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="font-weight: bold">typedef</span> <span style="font-weight: bold">struct</span> <span style="font-weight: bold">hw_module_t</span> {
+	<span style="font-weight: bold">uint32_t</span> tag;
+	<span style="font-weight: bold">uint16_t</span> module_api_version;
+	<span style="font-weight: bold">uint16_t</span> hal_api_version;
+	<span style="font-weight: bold">const</span> <span style="font-weight: bold">char</span> *id;
+	<span style="font-weight: bold">const</span> <span style="font-weight: bold">char</span> *name;
+	<span style="font-weight: bold">const</span> <span style="font-weight: bold">char</span> *author;
+	<span style="font-weight: bold">struct</span> <span style="font-weight: bold">hw_module_methods_t</span>* methods;
+	<span style="font-weight: bold">void</span>* dso;
+<span style="font-style: italic">#ifdef __LP64__</span>
+	<span style="font-weight: bold">uint64_t</span> reserved[32-7];
+<span style="font-style: italic">#else</span>
+	<span style="font-weight: bold">uint32_t</span> reserved[32-7];
+<span style="font-style: italic">#endif</span>
+} <span style="font-weight: bold">hw_module_t</span>;
+</pre></div>
+
+<p>The tag field defines it is hardware module , the 32 bit integer distingueshes the structure from hardware module and hardware device . See the below code snippet to figure out how the tag field is constructed .</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="font-style: italic">#define MAKE_TAG_CONSTANT(A,B,C,D) (((A) &lt;&lt; 24) | ((B) &lt;&lt; 16) | ((C) &lt;&lt; 8) | (D))</span>
+<span style="font-style: italic">#define HARDWARE_MODULE_TAG MAKE_TAG_CONSTANT(&#39;H&#39;, &#39;W&#39;, &#39;M&#39;, &#39;T&#39;)</span>
+<span style="font-style: italic">#define HARDWARE_DEVICE_TAG MAKE_TAG_CONSTANT(&#39;H&#39;, &#39;W&#39;, &#39;D&#39;, &#39;T&#39;)</span>
+</pre></div>
+
+<p>The module_api_version field defines the version of the api used for that specific module . The hal_api_version field defines the api version of the hal module itself .  Each hardware module is identified by an id , the <code>id</code> field is used to define the unique identifier of the hardware module. The methords field is used to open instanciate the hardware_device_t structure .</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="font-style: italic">#define CAMERA_HARDWARE_MODULE_ID &quot;camera&quot;</span>
+<span style="font-style: italic">#define SENSORS_HARDWARE_MODULE_ID &quot;sensors&quot;</span>
+<span style="font-style: italic">#define FINGERPRINT_HARDWARE_MODULE_ID &quot;fingerprint&quot;</span>
+<span style="font-style: italic">#define NFC_NCI_HARDWARE_MODULE_ID &quot;nfc_nci&quot;</span>
+<span style="font-style: italic">#define GPS_HARDWARE_MODULE_ID &quot;gps&quot;</span>
+...
+</pre></div>
+
+<p>The name field defines the the neme of the device. The author field can be used for registering the module authors name .</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="font-weight: bold">typedef</span> <span style="font-weight: bold">struct</span> <span style="font-weight: bold">hw_module_methods_t</span> {
+<span style="font-style: italic">/** Open a specific device */</span>
+<span style="font-weight: bold">int</span> (*open)(<span style="font-weight: bold">const</span> <span style="font-weight: bold">struct</span> <span style="font-weight: bold">hw_module_t</span>* module, <span style="font-weight: bold">const</span> <span style="font-weight: bold">char</span>* id,
+<span style="font-weight: bold">struct</span> <span style="font-weight: bold">hw_device_t</span>** device);
+} <span style="font-weight: bold">hw_module_methods_t</span>;
+</pre></div>
+
+<h2 id="hw-device-t-structure">hw_device_t structure</h2>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="font-weight: bold">typedef</span> <span style="font-weight: bold">struct</span> <span style="font-weight: bold">hw_device_t</span> {
+	<span style="font-weight: bold">uint32_t</span> tag;
+	<span style="font-weight: bold">uint32_t</span> version;
+	<span style="font-weight: bold">struct</span> <span style="font-weight: bold">hw_module_t</span>* module;
+<span style="font-style: italic">#ifdef __LP64__</span>
+	<span style="font-weight: bold">uint64_t</span> reserved[12];
+<span style="font-style: italic">#else</span>
+	<span style="font-weight: bold">uint32_t</span> reserved[12];
+<span style="font-style: italic">#endif</span>
+	<span style="font-weight: bold">int</span> (*close)(<span style="font-weight: bold">struct</span> <span style="font-weight: bold">hw_device_t</span>* device);
+} <span style="font-weight: bold">hw_device_t</span>;
+</pre></div>
+
+<p>Like hardware_module_t in hw_device_t structure also there is a tag field this field defines it as a hardware device . <code>version</code> field can be used for defineing the version of the hardware device . The module field can be used to store hardware module instance . The close field can be used to free the device memory instance .</p>
+
+<p>Now lets see some exaple implementations .</p>
+
+<h2 id="fingerprint-hal">Fingerprint HAL</h2>
+
+<p>In the fingerprint hal as every other hal module has a well known symbol &ldquo;HMI&rdquo; . HAL_MODULE_INFO_SYM is a macro which expands to HMI .</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="font-style: italic">/**</span>
+<span style="font-style: italic">* Name of the hal_module_info</span>
+<span style="font-style: italic">*/</span>
+<span style="font-style: italic">#define HAL_MODULE_INFO_SYM         HMI</span>
+
+<span style="font-style: italic">/**</span>
+<span style="font-style: italic">* Name of the hal_module_info as a string</span>
+<span style="font-style: italic">*/</span>
+<span style="font-style: italic">#define HAL_MODULE_INFO_SYM_AS_STR  &quot;HMI&quot;</span>
+</pre></div>
+
+<p>This symbol &ldquo;HMI&rdquo; sould have hw_module_t structure at the starting address . So every hal module will have a structure for its own fields but for sure the first field of the structure will be hw_module_t structure . In this case fingerprint hal module we are using finger_print_module_t . see below for the defanition for <code>fingerprint_module_t</code></p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="font-weight: bold">typedef</span> <span style="font-weight: bold">struct</span> fingerprint_module {
+<span style="font-style: italic">/**</span>
+<span style="font-style: italic">* Common methods of the fingerprint module. This *must* be the first member</span>
+<span style="font-style: italic">* of fingerprint_module as users of this structure will cast a hw_module_t</span>
+<span style="font-style: italic">* to fingerprint_module pointer in contexts where it&#39;s known </span>
+<span style="font-style: italic">* the hw_module_t references a fingerprint_module.</span>
+<span style="font-style: italic">*/</span> 
+	<span style="font-weight: bold">struct</span> <span style="font-weight: bold">hw_module_t</span> common;
+} <span style="font-weight: bold">fingerprint_module_t</span>;
+</pre></div>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="font-weight: bold">fingerprint_module_t</span> HAL_MODULE_INFO_SYM = {
+	.common = {
+		.tag                = HARDWARE_MODULE_TAG,
+		.module_api_version = FINGERPRINT_MODULE_API_VERSION_2_0,
+		.hal_api_version    = HARDWARE_HAL_API_VERSION,
+		.id                 = FINGERPRINT_HARDWARE_MODULE_ID,
+		.name               = <span style="font-style: italic">&quot;Demo Fingerprint HAL&quot;</span>,
+		.author             = <span style="font-style: italic">&quot;The Android Open Source Project&quot;</span>,
+		.methods            = &amp;fingerprint_module_methods,
+	},
+};
+</pre></div>
+
+<p>All the structure feilds are intiaizlized as we have discussed eariler . The Main fields is methords field which opens and instainsiate an Fingerprint device . Lets see how its implemented in a demo hal .</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="font-weight: bold">static</span> <span style="font-weight: bold">int</span> fingerprint_open(<span style="font-weight: bold">const</span> <span style="font-weight: bold">hw_module_t</span>* module, <span style="font-weight: bold">const</span> <span style="font-weight: bold">char</span> __unused *id,
+<span style="font-weight: bold">hw_device_t</span>** device)
+{
+	<span style="font-weight: bold">if</span> (device == NULL) {
+		ALOGE(<span style="font-style: italic">&quot;NULL device on open&quot;</span>);
+		<span style="font-weight: bold">return</span> -EINVAL;
+	}
+
+	<span style="font-weight: bold">fingerprint_device_t</span> *dev = malloc(<span style="font-weight: bold">sizeof</span>(<span style="font-weight: bold">fingerprint_device_t</span>));
+	memset(dev, 0, <span style="font-weight: bold">sizeof</span>(<span style="font-weight: bold">fingerprint_device_t</span>));
+
+	dev-&gt;common.tag = HARDWARE_DEVICE_TAG;
+	dev-&gt;common.version = FINGERPRINT_MODULE_API_VERSION_2_0;
+	dev-&gt;common.module = (<span style="font-weight: bold">struct</span> <span style="font-weight: bold">hw_module_t</span>*) module;
+	dev-&gt;common.close = fingerprint_close;
+
+	dev-&gt;pre_enroll = fingerprint_pre_enroll;
+	dev-&gt;enroll = fingerprint_enroll;
+	dev-&gt;get_authenticator_id = fingerprint_get_auth_id;
+	dev-&gt;cancel = fingerprint_cancel;
+	dev-&gt;remove = fingerprint_remove;
+	dev-&gt;set_active_group = fingerprint_set_active_group;
+	dev-&gt;authenticate = fingerprint_authenticate;
+	dev-&gt;set_notify = set_notify_callback;
+	dev-&gt;notify = NULL;
+
+	*device = (<span style="font-weight: bold">hw_device_t</span>*) dev;
+	<span style="font-weight: bold">return</span> 0;
+}
+
+<span style="font-weight: bold">static</span> <span style="font-weight: bold">struct</span> <span style="font-weight: bold">hw_module_methods_t</span> fingerprint_module_methods = {
+	.open = fingerprint_open,
+};
+</pre></div>
+
+<p>in the open methord we can see that fingerprint hal initizes the fingerprint device and defines the necessary function pointers for further usage . In the next post we can see how the halmodules are loaded</p>
+
+  </div>
+
+  <div id=links>
+    
+      <a class="basic-alignment left" href="/post/android_bootimg/">&laquo; android boot.img</a>
+    
+    
+  </div>
+</section>
+
+  
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-99635801-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>
+
+
+

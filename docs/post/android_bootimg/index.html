@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-	<meta name="generator" content="Hugo 0.21-DEV" />
     <meta http-equiv="cache-control" content="max-age=0" />
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="expires" content="0" />
@@ -32,10 +31,10 @@
     <title>
       
       
-         Binary Hacker Blog 
+         android boot.img 
       
     </title>
-    <link rel="canonical" href="/">
+    <link rel="canonical" href="/post/android_bootimg/">
 
     <style>
   * {
@@ -391,8 +390,6 @@
 
 
     
-      <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Binary Hacker Blog" />
-    
   </head>
 
   <body>
@@ -407,47 +404,71 @@
 
 
 <section id=content>
-  <ul class=posts_listing>
-     
+  <h1> android boot.img </h1>
+
+  <div id=sub-header>
+    June 2017 · 1 minute read
+  </div>
+
+  <div class="entry-content">
+    <p>Android boog.img is a image format used by android to boot the kernel and a internal ram filesystem (rootfs) . This image have the following structure</p>
+<div class="highlight" style="background: #ffffff"><pre style="line-height: 125%"><span style="font-weight: bold">struct</span> boot_img_hdr {
+	<span style="font-weight: bold">uint8_t</span> magic[BOOT_MAGIC_SIZE];
+	<span style="font-weight: bold">uint32_t</span> kernel_size;
+	<span style="font-weight: bold">uint32_t</span> kernel_addr;
+	<span style="font-weight: bold">uint32_t</span> ramdisk_size;
+	<span style="font-weight: bold">uint32_t</span> ramdisk_addr;
+	<span style="font-weight: bold">uint32_t</span> second_size;
+	<span style="font-weight: bold">uint32_t</span> second_addr;
+	<span style="font-weight: bold">uint32_t</span> tags_addr;
+	<span style="font-weight: bold">uint32_t</span> page_size;
+	<span style="font-weight: bold">uint32_t</span> unused[2];
+	<span style="font-weight: bold">uint8_t</span> name[BOOT_NAME_SIZE];
+	<span style="font-weight: bold">uint8_t</span> cmdline[BOOT_ARGS_SIZE];
+	<span style="font-weight: bold">uint32_t</span> id[8];
+	<span style="font-weight: bold">uint8_t</span> extra_cmdline[BOOT_EXTRA_ARGS_SIZE];
+} __attribute__((packed));
+</pre></div>
+
+<p>This <code>C structure</code> defines the structure of the android bootimage format . As you can see there are 3 diffrent sections in this header</p>
+
+<ol>
+<li>Magic</li>
+<li>Kernel
+
+<ul>
+<li>Kernel size</li>
+<li>Kernel address</li>
+</ul></li>
+<li>Ramdisk
+
+<ul>
+<li>Ramdisk size</li>
+<li>Ramdisk address</li>
+</ul></li>
+<li>Second
+
+<ul>
+<li>Second size</li>
+<li>Second Address</li>
+</ul></li>
+<li>Tags
+
+<ul>
+<li>Tags address</li>
+</ul></li>
+</ol>
+
+  </div>
+
+  <div id=links>
     
-    <li>
-    <h2><a href="/post/android_hal/">Android HAL (Hardware Abstraction Layer)</a></h2>
-    <div id=date>
-	    <time>June 2017</time>
-    </div>
-    </li>
-    
-     
-    
-    <li>
-    <h2><a href="/post/android_bootimg/">android boot.img</a></h2>
-    <div id=date>
-	    <time>June 2017</time>
-    </div>
-    </li>
-    
-     
-    
-    <li>
-    <h2><a href="/post/nexus_5_factory_flashing/">Flashing Nexus 5 Factory Images</a></h2>
-    <div id=date>
-	    <time>June 2017</time>
-    </div>
-    </li>
-    
-     
-    
-     
-    
-    <li>
-    <h2><a href="/post/c-compilation-stages/">C Program Without Main Function</a></h2>
-    <div id=date>
-	    <time>May 2017</time>
-    </div>
-    </li>
+      <a class="basic-alignment left" href="/post/nexus_5_factory_flashing/">&laquo; Flashing Nexus 5 Factory Images</a>
     
     
-  </ul>
+      <a class="basic-alignment left" href="/post/android_hal/">Android HAL (Hardware Abstraction Layer) &raquo;</a>
+    
+  </div>
 </section>
 
   
@@ -460,5 +481,6 @@ ga('send', 'pageview');
 
 </body>
 </html>
+
 
 

@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/post/android_hal/</loc>
+    <lastmod>2017-06-18T18:41:47+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/android_bootimg/</loc>
+    <lastmod>2017-06-14T08:17:12+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>/post/nexus_5_factory_flashing/</loc>
     <lastmod>2017-06-13T08:11:34+05:30</lastmod>
   </url>
@@ -18,8 +28,14 @@
   </url>
   
   <url>
+    <loc>/tags/android/</loc>
+    <lastmod>2017-06-18T18:41:47+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/</loc>
-    <lastmod>2017-06-13T08:11:34+05:30</lastmod>
+    <lastmod>2017-06-18T18:41:47+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -29,8 +45,20 @@
   </url>
   
   <url>
+    <loc>/tags/embedded/</loc>
+    <lastmod>2017-06-18T18:41:47+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/hal/</loc>
+    <lastmod>2017-06-18T18:41:47+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/post/</loc>
-    <lastmod>2017-06-13T08:11:34+05:30</lastmod>
+    <lastmod>2017-06-18T18:41:47+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -42,6 +70,7 @@
   
   <url>
     <loc>/tags/</loc>
+    <lastmod>2017-06-18T18:41:47+05:30</lastmod>
     <priority>0</priority>
   </url>
   

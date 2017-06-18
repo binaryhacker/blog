@@ -6,10 +6,30 @@
     <description>Recent content in Posts on Binary Hacker Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Jun 2017 08:11:34 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 18 Jun 2017 18:41:47 +0530</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android HAL (Hardware Abstraction Layer)</title>
+      <link>/post/android_hal/</link>
+      <pubDate>Sun, 18 Jun 2017 18:41:47 +0530</pubDate>
+      
+      <guid>/post/android_hal/</guid>
+      <description>Hardare Abstraction Layer is the software component which abstracts the hardware . In one context operating system is a hardware abstraction layer . In another context we can say a pheripheral driver is a hardware abstraction layer for that pheripheral hardware . Or some time we can use userspace drievers which does the job of abstracting the hardware .
+Hardware Abstraction Layer in the context of android operating system is a binary blob which will talk to hardware .</description>
+    </item>
+    
+    <item>
+      <title>android boot.img</title>
+      <link>/post/android_bootimg/</link>
+      <pubDate>Wed, 14 Jun 2017 08:17:12 +0530</pubDate>
+      
+      <guid>/post/android_bootimg/</guid>
+      <description>Android boog.img is a image format used by android to boot the kernel and a internal ram filesystem (rootfs) . This image have the following structure
+struct boot_img_hdr { uint8_t magic[BOOT_MAGIC_SIZE]; uint32_t kernel_size; uint32_t kernel_addr; uint32_t ramdisk_size; uint32_t ramdisk_addr; uint32_t second_size; uint32_t second_addr; uint32_t tags_addr; uint32_t page_size; uint32_t unused[2]; uint8_t name[BOOT_NAME_SIZE]; uint8_t cmdline[BOOT_ARGS_SIZE]; uint32_t id[8]; uint8_t extra_cmdline[BOOT_EXTRA_ARGS_SIZE]; } __attribute__((packed));  This C structure defines the structure of the android bootimage format .</description>
+    </item>
     
     <item>
       <title>Flashing Nexus 5 Factory Images</title>

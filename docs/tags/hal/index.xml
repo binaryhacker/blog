@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hal on Binary Hacker Blog</title>
+    <link>/tags/hal/</link>
+    <description>Recent content in Hal on Binary Hacker Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Jun 2017 18:41:47 +0530</lastBuildDate>
+    
+	<atom:link href="/tags/hal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Android HAL (Hardware Abstraction Layer)</title>
+      <link>/post/android_hal/</link>
+      <pubDate>Sun, 18 Jun 2017 18:41:47 +0530</pubDate>
+      
+      <guid>/post/android_hal/</guid>
+      <description>Hardare Abstraction Layer is the software component which abstracts the hardware . In one context operating system is a hardware abstraction layer . In another context we can say a pheripheral driver is a hardware abstraction layer for that pheripheral hardware . Or some time we can use userspace drievers which does the job of abstracting the hardware .
+Hardware Abstraction Layer in the context of android operating system is a binary blob which will talk to hardware .</description>
+    </item>
+    
+  </channel>
+</rss>
